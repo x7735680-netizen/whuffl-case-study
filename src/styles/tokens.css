@@ -1,0 +1,143 @@
+/*
+ * Whuffl design tokens — locked to design.md §2 + §23.
+ * Locked overrides (2026-09-13):
+ *   - English: Roboto
+ *   - Chinese: 黑体 (Heiti SC / Source Han Sans SC / Noto Sans SC / SimHei fallback)
+ *   - No webfont is loaded.
+ */
+:root {
+  /* ── Color tokens (design.md §2) ───────────────────────── */
+  --c-ink:        #2C322D;
+  --c-ink-2:      #4A5148;
+  --c-olive:      #788A42;
+  --c-sage:       #AAB894;
+  --c-line:       rgba(44, 50, 45, 0.20);
+  --c-bg:         #F7F8F3;
+  --c-bg-2:       #EEF2E5;
+  --c-white:      #FFFFFF;
+
+  --c-accent:        #D1FF00;
+  --c-accent-soft:   #E7FF7A;
+  --c-accent-wash:   #F4FFD0;
+
+  /* ── BUILD / Light feedback ───────────────────────────── */
+  --whuffl-bg-dark: #2D322D;
+  --whuffl-text-dark: #2C322D;
+  --whuffl-accent: #D1FF00;
+  --lf-panel-bg: #E6EDD9;
+  --lf-data-bg: #414742;
+  --lf-data-icon-bg: #89A321;
+  --lf-state-green: #7ACB00;
+  --state-green: #7ACB00;
+  --state-pink: #B45B74;
+  --state-yellow: #8D8724;
+  --state-orange: #8A6429;
+  --state-white: #6E746E;
+  --text-white-96: rgba(255,255,255,.96);
+  --text-white-92: rgba(255,255,255,.92);
+  --text-white-84: rgba(255,255,255,.84);
+  --text-white-68: rgba(255,255,255,.68);
+  --text-dark-92: rgba(44,50,45,.92);
+  --text-dark-64: rgba(44,50,45,.64);
+  --text-dark-42: rgba(44,50,45,.42);
+  --ease-standard: cubic-bezier(.22, .61, .36, 1);
+
+  --c-danger:     #E76854;
+  --c-warning:    #F1A85B;
+  --c-muted:      rgba(44, 50, 45, 0.56);
+
+  /* ── Surfaces / borders ──────────────────────────────── */
+  --c-rule-dark: rgba(255, 255, 255, 0.16);
+  --c-rule-light: var(--c-line);
+
+  /* ── Type families (user-locked, 2026-09-13) ─────────── */
+  --font-sans:
+    Roboto,
+    "Heiti SC",
+    "Source Han Sans SC",
+    "Noto Sans SC",
+    "SimHei",
+    "Microsoft YaHei",
+    "PingFang SC",
+    system-ui,
+    sans-serif;
+
+  /* ── Type scale — desktop (design.md §3) ─────────────── */
+  --t-display-xl-size:  clamp(56px, 7.2vw, 104px);
+  --t-display-xl-line:  0.94;
+  --t-display-xl-track: -0.035em;
+
+  --t-display-size:  clamp(46px, 5.2vw, 76px);
+  --t-display-line:  0.98;
+  --t-display-track: -0.03em;
+
+  --t-h1-size:  clamp(40px, 4.4vw, 64px);
+  --t-h1-line:  1.02;
+  --t-h1-track: -0.025em;
+
+  --t-h2-size:  clamp(28px, 3vw, 44px);
+  --t-h2-line:  1.08;
+  --t-h2-track: -0.02em;
+
+  --t-h3-size:  clamp(20px, 1.9vw, 28px);
+  --t-h3-line:  1.15;
+  --t-h3-track: -0.01em;
+
+  --t-lead-size:  clamp(18px, 1.6vw, 26px);
+  --t-lead-line:  1.45;
+
+  --t-body-lg-size: 18px;
+  --t-body-lg-line: 1.6;
+
+  --t-body-size: clamp(15px, 1.05vw, 16px);
+  --t-body-line: 1.6;
+
+  --t-caption-size: 13px;
+  --t-caption-line: 1.45;
+
+  --t-num-size: clamp(40px, 5.6vw, 80px);
+  --t-num-line: 0.95;
+
+  /* ── Section label (// 0X NUMERAL · LABEL) ────────────── */
+  --t-section-label-size: clamp(11px, 0.9vw, 14px);
+  --t-section-label-track: 0.12em;
+  --t-section-label-weight: 600;
+
+  /* ── Spacing tokens (design.md §17) ──────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 144px;
+  --space-11: 192px;
+
+  /* ── Radii (design.md §6) ────────────────────────────── */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* ── Layout (design.md §4) ───────────────────────────── */
+  --page-max: 1440px;
+  --content-max: 1280px;
+  --reading-max: 720px;
+
+  /* ── Motion (design.md §15) ──────────────────────────── */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 180ms;
+  --dur-mid:  260ms;
+  --dur-slow: 600ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-mid:  0ms;
+    --dur-slow: 0ms;
+  }
+}
