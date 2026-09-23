@@ -486,6 +486,33 @@ export const journeyMap = {
   openLabel: B("View full journey", "放大查看"),
 };
 
+export const journeyPrinciples = [
+  {
+    id: "interpretation",
+    title: B("Misinterpretations & anomalous data", "误判与异常数据"),
+    body: B(
+      "The system surfaces low-interruption prompts first, letting users confirm, ignore, or correct the result. User feedback also informs future improvements and reduces repeated false positives.",
+      "系统先以低干扰提醒呈现，并允许用户确认、忽略或修正结果。用户反馈也可作为后续优化的依据，降低重复误报。"
+    ),
+  },
+  {
+    id: "offline",
+    title: B("Low battery & offline devices", "低电量与设备离线"),
+    body: B(
+      "Users are warned in advance when the collar battery is low. If the device goes offline, the walk can continue through the phone; missing sensor data is clearly marked and locally cached data syncs once reconnected.",
+      "当项圈电量低时提前提醒用户。设备离线后，散步流程仍可通过手机继续进行；缺失的传感器数据会明确标记，重新连接后再同步本地缓存数据。"
+    ),
+  },
+  {
+    id: "privacy",
+    title: B("Data, location & privacy", "数据、定位与隐私"),
+    body: B(
+      "Location and pet data stay private by default and are used only within the scope needed for core functions. Every sharing action requires explicit authorization, with controls over recipients and permissions.",
+      "位置和宠物数据默认保持私密，只在完成核心功能所需的范围内使用。任何分享行为都需要用户主动授权，并可控制分享对象与权限。"
+    ),
+  },
+];
+
 // ─── BUSINESS ──────────────────────────────────────────────────────────
 export const sourcing = {
   headline: B("Sourcing: 4 steps, no spreadsheet required.", "供应链：4 步，不依赖 Excel 截图。"),

@@ -29,6 +29,7 @@ import {
   personas,
   experienceStoryboard,
   journeyMap,
+  journeyPrinciples,
   sourcing,
   bom,
   fullyLoadedCost,
@@ -273,6 +274,7 @@ export default function WhufflCaseStudy() {
                 <span data-lang-only="en">Helping owners<br />understand a walk<br />from a dog’s point of view.</span>
                 <span data-lang-only="zh">让主人从狗狗视角<br />重新理解一次散步</span>
               </h1>
+              <p className="hero-recruitment-note">Shared For Recruitment Purposes Only</p>
             </div>
             <button className="hero-play-button" type="button" aria-label={langPair({ en: "Play full Whuffl film", zh: "播放 Whuffl 完整影片" })}>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7.25v9.5L17 12 9 7.25Z" fill="currentColor" /></svg>
@@ -634,6 +636,24 @@ export default function WhufflCaseStudy() {
               alt={langPair({ en: "User journey map", zh: "用户旅程图" })}
               openLabel={journeyMap.openLabel}
             />
+            <section className="journey-principles" aria-labelledby="journey-principles-title">
+              <h4 id="journey-principles-title" className="journey-principles-title">
+                Designing Beyond The Happy Path
+              </h4>
+              <div className="journey-principles-grid">
+                {journeyPrinciples.map((principle, index) => (
+                  <RevealCard
+                    as="article"
+                    key={principle.id}
+                    delay={index * 90}
+                    className="journey-principle-card"
+                  >
+                    <h5>{langPair(principle.title)}</h5>
+                    <p>{langPair(principle.body)}</p>
+                  </RevealCard>
+                ))}
+              </div>
+            </section>
           </article>
         </div>
       </section>

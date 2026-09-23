@@ -7,6 +7,8 @@ export default function CaseStudyFooter() {
       <div className="case-footer-meta">
         <p className="case-footer-mark">
           <span className="case-footer-mark-rule" aria-hidden="true" />
+          <span className="case-footer-recruitment-note">Shared For Recruitment Purposes Only</span>
+          <span className="case-footer-mark-rule" aria-hidden="true" />
           <span className="case-footer-mark-end">— END —</span>
         </p>
         <div className="case-footer-support">
