@@ -18,6 +18,7 @@ import ViabilitySection from "../components/ViabilitySection.jsx";
 
 import { langPair } from "../lib/lang.js";
 import useScrollChapter from "../lib/useScrollChapter.js";
+import useSectionImagePreload from "../lib/useSectionImagePreload.js";
 
 import {
   project,
@@ -176,6 +177,12 @@ export default function WhufflCaseStudy() {
   const [isHeroRevealing, setIsHeroRevealing] = useState(false);
   const heroBackgroundVideoRef = useRef(null);
   const activeChapter = useScrollChapter(SECTION_IDS);
+  const [whyRef] = useSectionImagePreload();
+  const [walkQualityRef] = useSectionImagePreload();
+  const [decideRef] = useSectionImagePreload();
+  const [buildRef] = useSectionImagePreload();
+  const [experienceRef] = useSectionImagePreload();
+  const [viabilityRef] = useSectionImagePreload();
 
   useEffect(() => {
     if (isHovering) return undefined;
@@ -285,7 +292,7 @@ export default function WhufflCaseStudy() {
       </section>
 
       {/* ─── 02 WHY — Urban Context ─── */}
-      <section id="why-context" className="page-section why-context" aria-labelledby="why-context-title">
+      <section ref={whyRef} id="why-context" className="page-section why-context" aria-labelledby="why-context-title">
         <div className="page-inner">
           <SectionIntro
             index="01"
@@ -308,7 +315,7 @@ export default function WhufflCaseStudy() {
                     <div className="why-card-chart-group">
                       <div className="why-card-chart-wrap">
                         <img
-                          src="/assets/whuffl/page-02-why/why-02-chart.png"
+                          data-preload-src="/assets/whuffl/page-02-why/why-02-chart.png"
                           alt=""
                           className="why-card-chart"
                         />
@@ -323,11 +330,11 @@ export default function WhufflCaseStudy() {
             ))}
           </div>
         </div>
-        <img className="why-landscape" src="/assets/whuffl/page-02-why/why-bottom-landscape.png" alt="Urban dog-walking context research collage" loading="lazy" />
+        <img className="why-landscape" data-preload-src="/assets/whuffl/page-02-why/why-bottom-landscape.png" alt="Urban dog-walking context research collage" />
       </section>
 
       {/* ─── 03 WHY — High-quality Walk ─── */}
-      <section id="walk-quality" className="page-section walk-quality-section" aria-labelledby="walk-quality-title">
+      <section ref={walkQualityRef} id="walk-quality" className="page-section walk-quality-section" aria-labelledby="walk-quality-title">
         <div className="page-inner">
           <SectionIntro
             index="01"
@@ -352,7 +359,7 @@ export default function WhufflCaseStudy() {
           <div className="interview-grid reveal-card-grid">
             {interviews.items.map((it, index) => (
               <RevealCard as="figure" key={it.id} delay={index * 90} className="interview-card">
-                <img src={it.avatar} alt={langPair(it.name)} loading="lazy" />
+                <img data-preload-src={it.avatar} alt={langPair(it.name)} />
                 <figcaption>
                   <p className="interview-question">{langPair(it.theme)}</p>
                   <blockquote>{langPair(it.quote)}</blockquote>
@@ -395,7 +402,7 @@ export default function WhufflCaseStudy() {
       </section>
 
       {/* ─── 04 DECIDE ─── */}
-      <section id="ch-decide" className="chapter chapter--decide" aria-labelledby="decide-title">
+      <section ref={decideRef} id="ch-decide" className="chapter chapter--decide" aria-labelledby="decide-title">
         <div className="decide-canvas">
           <SectionIntro
             className="decide-heading"
@@ -513,7 +520,7 @@ export default function WhufflCaseStudy() {
 
               <div className="concept-hmw" aria-label={langPair(B("How might we help owners understand what their dog is experiencing?", "我们如何帮助主人理解狗狗正在经历什么？"))}>
                 <div className="concept-hmw-circle" aria-hidden="true" />
-                <img className="concept-hmw-picture" src="/assets/whuffl/page-04-decide/HMW-picture.png" alt="" />
+                <img className="concept-hmw-picture" data-preload-src="/assets/whuffl/page-04-decide/HMW-picture.png" alt="" />
                 <p className="concept-hmw-core">
                   <span data-lang-only="en">Help owners understand<br />what their dog is experiencing</span>
                   <span data-lang-only="zh">帮助主人理解<br />狗狗正在经历什么</span>
@@ -532,7 +539,7 @@ export default function WhufflCaseStudy() {
               </div>
 
               <div className="concept-iteration-visual">
-                <img src="/assets/whuffl/page-04-decide/product iteration.png" alt={langPair(B("Product iteration sketches and collar prototypes", "产品迭代草图与项圈原型"))} />
+                <img data-preload-src="/assets/whuffl/page-04-decide/product iteration.png" alt={langPair(B("Product iteration sketches and collar prototypes", "产品迭代草图与项圈原型"))} />
                 {ITERATION_HOTSPOTS.map((hotspot) => (
                   <button
                     key={hotspot.id}
@@ -557,7 +564,7 @@ export default function WhufflCaseStudy() {
       </section>
 
       {/* ─── 04 BUILD ─── */}
-      <section id="ch-build" className="chapter chapter--build" aria-labelledby="build-title">
+      <section ref={buildRef} id="ch-build" className="chapter chapter--build" aria-labelledby="build-title">
         <div className="build-inner">
           <SectionIntro
             className="build-header"
@@ -586,7 +593,7 @@ export default function WhufflCaseStudy() {
       </section>
 
       {/* ─── 04 EXPERIENCE ─── */}
-      <section id="ch-experience" className="chapter chapter--experience" aria-labelledby="experience-title">
+      <section ref={experienceRef} id="ch-experience" className="chapter chapter--experience" aria-labelledby="experience-title">
         <div className="chapter-inner">
           <SectionIntro
             id="experience-title"
@@ -610,7 +617,7 @@ export default function WhufflCaseStudy() {
                 {experienceStoryboard.map((scene) => (
                   <article className="storyboard-card" key={scene.id}>
                     <div className="storyboard-image-wrap">
-                      <img src={scene.image} alt={scene.id} loading="lazy" />
+                      <img data-preload-src={scene.image} alt={scene.id} />
                     </div>
                     <div className="storyboard-caption">{langPair(scene.title)}</div>
                   </article>
@@ -659,7 +666,7 @@ export default function WhufflCaseStudy() {
       </section>
 
       {/* ─── 06 VIABILITY ─── */}
-      <section id="ch-viability" className="chapter chapter--viability" aria-labelledby="viability-title">
+      <section ref={viabilityRef} id="ch-viability" className="chapter chapter--viability" aria-labelledby="viability-title">
         <div className="chapter-inner">
           <SectionIntro
             id="viability-title"

@@ -8,7 +8,7 @@ export default function ExplodedView({ asset, components, lead }) {
   return (
     <div className="exploded">
       <div className="exploded-stage">
-        <img src={asset} alt={langPair({ en: "Collar exploded view", zh: "项圈爆炸图" })} loading="lazy" />
+        <img data-preload-src={asset} alt={langPair({ en: "Collar exploded view", zh: "项圈爆炸图" })} />
         {components.map((c, i) => {
           // Distribute labels around the right side with alternating offsets.
           const top = 6 + (i * 86) / components.length;

@@ -39,7 +39,7 @@ function SizeValidation() {
               <div className="formula-line formula-line--multiline"><div><span className="formula-accent">T</span>{" = Shell + Silicone + Components"}</div><div className="formula-indent">+ Battery + Sealant</div><div className="formula-indent">{"= 4 + 1 + 3.5 + 5 + 1.2 = "}<span className="formula-result">15 mm</span></div></div>
             </div>
           </div>
-          <div className="hardware-state__visual"><img src={ASSET("size validation.png")} alt="Light guide area and module cross section" /></div>
+          <div className="hardware-state__visual"><img data-preload-src={ASSET("size validation.png")} alt="Light guide area and module cross section" /></div>
         </div>
         <div className="given-conditions">
           <div className="given-conditions__title">Given Conditions</div>
@@ -53,7 +53,7 @@ function SizeValidation() {
 }
 
 function ThreeView() {
-  return <div className="hardware-state hardware-state--three-view"><h3 className="hardware-state__cn-title">三视图</h3><div className="three-view-image"><img src={ASSET("three view.png")} alt="Whuffl collar three-view drawing" /></div></div>;
+  return <div className="hardware-state hardware-state--three-view"><h3 className="hardware-state__cn-title">三视图</h3><div className="three-view-image"><img data-preload-src={ASSET("three-view.png")} alt="Whuffl collar three-view drawing" /></div></div>;
 }
 
 function CollarSize() {
@@ -72,7 +72,7 @@ function CollarSize() {
             <div className="formula-line"><span className="formula-accent">D</span>{" = F"}<sub>a</sub>{" × k ≈ "}<span className="formula-result">10 mm</span>{" ≤ D' ≤ F"}</div>
             <div className="formula-line"><span className="formula-accent">H</span>{" = t"}<sub>strap</sub>{" + 2t"}<sub>wall</sub>{" + δ ≈ "}<span className="formula-result">8 mm</span></div>
           </div></div>
-          <div className="collar-size-layout__visual hardware-state__visual hardware-state__visual--collar"><img src={ASSET("collar size.png")} alt="Collar sizing by dog size" /></div>
+          <div className="collar-size-layout__visual hardware-state__visual hardware-state__visual--collar"><img data-preload-src={ASSET("collar size.png")} alt="Collar sizing by dog size" /></div>
         </div>
         <div className="given-conditions given-conditions--collar"><div className="given-conditions__title">Given Conditions</div><div className="given-conditions__columns">
           <div><GivenCondition label="Maximum total length" variable="L" value="51mm" /><GivenCondition label="Maximum buckle depth" variable="D'" value="19mm" /><GivenCondition label={<>Female thumb grip point</>} variable={<>T<sub>f</sub></>} value="14mm" /><GivenCondition label="Male thumb grip point" variable={<>T<sub>m</sub></>} value="18mm" /></div>
@@ -91,6 +91,14 @@ export default function BuildHardware({ lang = "en" }) {
 
   return (
     <div className="hardware-layout">
+      <div hidden aria-hidden="true">
+        {[
+          ASSET("size validation.png"),
+          ASSET("three-view.png"),
+          ASSET("collar size.png"),
+          "/assets/whuffl/page-05-build/product/exploded-view/collar-exploded-view.png",
+        ].map((src) => <img data-preload-src={src} alt="" key={src} />)}
+      </div>
       <div className="hardware-detail-card">
         <div className="hardware-detail-transition" key={active}><Detail /></div>
         <div className="hardware-slider" aria-label="Hardware view selector">
@@ -98,7 +106,7 @@ export default function BuildHardware({ lang = "en" }) {
         </div>
       </div>
       <div className="exploded-view-stage">
-        <img className="exploded-view-image" src="/assets/whuffl/page-05-build/product/exploded-view/collar-exploded-view.png" alt="Whuffl collar exploded view" />
+        <img className="exploded-view-image" data-preload-src="/assets/whuffl/page-05-build/product/exploded-view/collar-exploded-view.png" alt="Whuffl collar exploded view" />
         <div className="exploded-label-layer" aria-hidden="true">
           {explodedViewLabels.map((label) => (
             <div

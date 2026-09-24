@@ -96,9 +96,8 @@ export default function JourneyMapViewer({ src, alt, openLabel, note }) {
     <>
       <figure className="journey-frame">
         <img
-          src={src}
+          data-preload-src={src}
           alt={alt}
-          loading="lazy"
           className="journey-img"
           onClick={() => setOpen(true)}
         />

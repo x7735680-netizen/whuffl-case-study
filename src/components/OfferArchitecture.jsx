@@ -95,7 +95,7 @@ export default function OfferArchitecture() {
             <p>{langPair({ en: "Market-aligned pricing supported by a sustainable margin structure.", zh: "价格贴近市场接受区间，并保留可持续利润空间。" })}</p>
           </div>
           <div ref={imageWrapRef} className="offer-architecture-image-wrap">
-            <img src="/assets/whuffl/page-08-viability/offer architecture.png" alt={langPair({ en: "Offer architecture cost structure", zh: "产品报价成本结构" })} />
+            <img data-preload-src="/assets/whuffl/page-08-viability/offer architecture.png" alt={langPair({ en: "Offer architecture cost structure", zh: "产品报价成本结构" })} />
           </div>
         </div>
 

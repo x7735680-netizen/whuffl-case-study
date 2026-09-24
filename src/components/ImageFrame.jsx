@@ -10,10 +10,9 @@ export default function ImageFrame({
   return (
     <figure className={`image-frame ${className}`.trim()}>
       <img
-        src={src}
+        data-preload-src={src}
         alt={alt}
-        loading={loading}
-        fetchPriority={fetchPriority}
+        {...(loading === "eager" ? { src, loading, fetchPriority } : {})}
         width={width}
         height={height}
       />

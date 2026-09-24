@@ -8,10 +8,9 @@ export default function PhoneFrame({ src, alt, size = "md", priority = false }) 
       <div className="phone-bezel">
         <span className="phone-notch" aria-hidden="true" />
         <img
-          src={src}
+          data-preload-src={src}
           alt={alt}
-          loading={priority ? "eager" : "lazy"}
-          fetchPriority={priority ? "high" : "auto"}
+          {...(priority ? { src, fetchPriority: "high", loading: "eager" } : {})}
         />
       </div>
     </figure>

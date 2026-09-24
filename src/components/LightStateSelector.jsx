@@ -14,10 +14,13 @@ export default function LightStateSelector({ lang = "en" }) {
 
   return (
     <section className="light-state" aria-label="Five-state light language">
+      <div hidden aria-hidden="true">
+        {[...new Set(lightFeedbackStates.flatMap((state) => [state.productImage, ...state.data.map((item) => item.icon)]))].map((src) => <img data-preload-src={src} alt="" key={src} />)}
+      </div>
       <div className="light-feedback-panel">
         <div className="light-main-card">
           <div className="light-feedback-product">
-            <img src={current.productImage} alt="" aria-hidden="true" className="light-state-img is-active" />
+            <img data-preload-src={current.productImage} alt="" aria-hidden="true" className="light-state-img is-active" />
           </div>
           <div className="light-state-copy" key={current.key}>
             <h3 style={{ color: current.color }}>{langPair(current.stateName, lang)}</h3>
@@ -36,7 +39,7 @@ export default function LightStateSelector({ lang = "en" }) {
 
                 return (
                   <div className="light-data-item" key={item.icon}>
-                    <span className="light-data-icon"><img src={item.icon} alt="" /></span>
+                    <span className="light-data-icon"><img data-preload-src={item.icon} alt="" /></span>
                     <span className="light-data-metric">
                       <span>{value}</span>
                       {unit ? <span>{unit}</span> : null}

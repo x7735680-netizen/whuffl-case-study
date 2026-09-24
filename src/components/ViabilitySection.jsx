@@ -84,7 +84,7 @@ function GTMRoadmap() {
             >
               <p className="gtm-index">{step.index}</p>
               <div className={`gtm-icon gtm-icon--${String(index + 1).padStart(2, "0")}`}>
-                <img src={step.icon} alt="" />
+                <img data-preload-src={step.icon} alt="" />
               </div>
               <div className="gtm-copy">
                 <h3>{langPair(step.title)}</h3>
@@ -121,7 +121,7 @@ function ViabilityClosing() {
     <>
       <section className="viability-ending-main" aria-label={langPair({ en: "Closing statement", zh: "结语" })}>
         <RevealTextGroup className="viability-ending-content reveal-text-group--self">
-          <img className="viability-closing-logo reveal-text-group__title" src="/assets/whuffl/common/logo-white.png" alt="Whuffl" />
+          <img className="viability-closing-logo reveal-text-group__title" data-preload-src="/assets/whuffl/common/logo-white.png" alt="Whuffl" />
           <p className="viability-closing-copy reveal-text-group__subtitle">{langPair(viabilityCopy.closing)}</p>
         </RevealTextGroup>
       </section>

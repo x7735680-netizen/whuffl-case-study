@@ -6,7 +6,7 @@ export default function PersonaCard({ persona, delay = 0 }) {
     <RevealCard as="article" delay={delay} className={`persona-card ${persona.accent ? "is-accent" : ""}`.trim()}>
       <div className="persona-card-head">
         <div className="persona-avatar">
-          <img src={persona.avatar} alt={langPair(persona.name)} loading="lazy" />
+          <img data-preload-src={persona.avatar} alt={langPair(persona.name)} />
         </div>
         <div className="persona-meta">
           <p className="persona-share">
